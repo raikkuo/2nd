@@ -26,7 +26,7 @@ const CONTENT = {
   ],
 
   songs: [
-    { title: "your favourite song c:", artist: "Safe and Sound: Taylor Swift", file: "Taylor Swift feat. The Civil Wars Safe & Sound (from The Hunger Games Soundtrack) (1).mp3", color: "#ff5d8f", cover: "images (5).jpg",
+    { title: "your favourite song c:", artist: "Safe and Sound: Taylor Swift", file: "Taylor Swift feat. The Civil Wars Safe & Sound (from The Hunger Games Soundtrack).mp3", color: "#ff5d8f", cover: "images (5).jpg",
       why: "you really do know how to pick your favourites." },
     { title: "song that fits you", artist: "Just the way you are: Bruno Mars", file: "Bruno Mars - Just The Way You Are (Audio).mp3", color: "#6ec1ff", cover: "images (2).jpg",
       why: "for you ." },
