@@ -1,0 +1,89 @@
+html { scroll-behavior: smooth; }
+body { height: auto; min-height: 100%; background-attachment: fixed; }
+main, .sec { scroll-margin-top: 52px; }
+main { min-height: calc(100vh - 52px); }
+
+.nav { position: sticky; top: 0; z-index: 4; display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; padding: 10px; background: rgba(43,20,54,.88); backdrop-filter: blur(8px); }
+.nav a { color: #fff; text-decoration: none; padding: 6px 14px; border-radius: 999px; }
+.nav a:hover, .nav a:focus-visible { background: rgba(255,255,255,.16); outline: none; }
+
+.together { margin: 0 0 22px; padding: 8px 18px; border-radius: 999px; background: rgba(255,255,255,.1); font-size: .95rem; }
+
+.sec { max-width: 900px; margin: 0 auto; padding: 70px 16px; }
+.sec h2 { font-family: "Caveat", cursive; font-size: clamp(2.2rem, 7vw, 3rem); color: var(--butter); margin: 0; }
+.lead { opacity: .8; margin: 4px 0 30px; }
+
+/* bouquet */
+#gallery h2 { color: #ffb3cf; }
+.bouquet { position: relative; width: min(440px, 100%); aspect-ratio: 440 / 520; margin: 10px auto 90px; }
+.bouquet::before { content: ""; position: absolute; left: -22%; right: -22%; top: -8%; bottom: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(255,120,175,.34), rgba(255,120,175,.12) 55%, transparent); }
+.bouquet .bq { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 14px 18px rgba(0,0,0,.35)); }
+.flower { position: absolute; aspect-ratio: 1; pointer-events: none;
+  transform: translate(-50%, -50%) rotate(var(--r)); transform-origin: 50% 100%;
+  animation: sway 5s ease-in-out var(--d) infinite alternate; }
+.flower svg { display: block; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 4px 6px rgba(0,0,0,.28)); }
+@keyframes sway { to { transform: translate(-50%, -50%) rotate(calc(var(--r) + 3deg)); } }
+
+/* falling petals (moved by sections.js) */
+.pt { position: absolute; left: 0; top: 0; z-index: 4; pointer-events: none; will-change: transform, opacity; }
+.pt i { display: block; width: 100%; height: 100%; border-radius: 85% 0 85% 0; background: linear-gradient(135deg, var(--c1), var(--c2));
+  box-shadow: inset -2px -3px 5px rgba(255,255,255,.28), 0 2px 4px rgba(0,0,0,.18); }
+.pt.rest { will-change: auto; }
+
+/* vinyl */
+.player { display: flex; gap: 40px; align-items: center; justify-content: center; flex-wrap: wrap; }
+.deck { position: relative; width: min(280px, 78vw); aspect-ratio: 1; margin-right: 24px; }
+.vinyl { position: relative; width: 100%; height: 100%; border-radius: 50%; display: grid; place-items: center;
+  background: repeating-radial-gradient(circle, #101010 0 2px, #1d1d1d 3px 4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,.55); animation: spin 3s linear infinite; animation-play-state: paused; }
+.vinyl::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(transparent 0 20%, rgba(255,255,255,.12) 25%, transparent 30% 70%, rgba(255,255,255,.12) 75%, transparent 80%); }
+.playing .vinyl { animation-play-state: running; }
+@keyframes spin { to { transform: rotate(360deg) } }
+.label { position: relative; width: 38%; aspect-ratio: 1; border-radius: 50%; background: var(--rose); display: grid; place-items: center; padding: 8px; font-family: "Caveat", cursive; font-size: 1.05rem; line-height: 1; overflow: hidden; }
+.label::after { content: ""; position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--night); }
+.arm { position: absolute; right: -8%; top: -4%; width: 9px; height: 62%; border-radius: 6px; background: #d9d2c8; transform-origin: top center; transform: rotate(-10deg); transition: transform .9s ease; }
+.arm::after { content: ""; position: absolute; bottom: -8px; left: -6px; width: 20px; height: 20px; border-radius: 4px; background: #b9b0a4; }
+.playing .arm { transform: rotate(24deg); }
+.info { text-align: left; max-width: 300px; }
+.info h3 { font-family: "Caveat", cursive; font-size: 2.2rem; margin: 0; color: var(--butter); }
+.artist { margin: 0 0 10px; opacity: .8; }
+.why { font-family: "Caveat", cursive; font-size: 1.4rem; margin: 0 0 16px; }
+.ctrl { display: flex; gap: 8px; flex-wrap: wrap; }
+.msg { min-height: 1.2em; font-size: .85rem; color: var(--mint); margin: 10px 0 0; }
+.tracks { list-style: none; padding: 0; margin: 30px auto 0; max-width: 420px; text-align: left; }
+.tracks button { width: 100%; text-align: left; font: inherit; color: #fff; background: rgba(255,255,255,.07); border: 0; border-radius: 10px; padding: 10px 14px; margin-bottom: 6px; cursor: pointer; }
+.tracks button:hover, .tracks .on button { background: rgba(255,255,255,.18); }
+
+/* letter */
+.env { position: relative; display: block; width: min(300px, 80vw); height: 190px; margin: 0 auto; border: 0; border-radius: 8px; background: #f0cfb5; cursor: pointer; box-shadow: 0 16px 36px rgba(0,0,0,.45); transition: opacity .5s, transform .5s; }
+.env:focus-visible { outline: 3px dashed var(--butter); outline-offset: 6px; }
+.flap { position: absolute; left: 0; top: 0; width: 100%; height: 62%; background: #e2b394; clip-path: polygon(0 0, 100% 0, 50% 100%); transform-origin: top; transition: transform .6s; }
+.seal { position: absolute; left: 50%; top: 48%; width: 46px; height: 46px; margin: -23px 0 0 -23px; border-radius: 50%; background: var(--rose); display: grid; place-items: center; font-size: 1.3rem; box-shadow: 0 3px 0 #a72b56; }
+.env.open { transform: scale(.85); opacity: 0; }
+.env.open .flap { transform: rotateX(180deg); }
+.letter { max-width: 560px; margin: 0 auto; padding: 34px 28px; text-align: left; background: var(--paper); color: var(--ink); border-radius: 8px; font-family: "Caveat", cursive; font-size: 1.6rem; line-height: 1.3; opacity: 0; transform: scale(.4); box-shadow: 0 20px 50px rgba(0,0,0,.5); }
+.letter[hidden] { display: none; }
+.letter.show { animation: unfold .7s cubic-bezier(.3,1.4,.6,1) forwards; }
+.letter p { margin: 0 0 14px; }
+.letter .sign { color: var(--rose); font-weight: 700; margin: 22px 0 0; }
+
+.foot { padding: 40px 16px 60px; font-family: "Caveat", cursive; font-size: 1.8rem; color: var(--butter); }
+
+/* keep the record spinning even when the device has reduced-motion on (style.css would freeze it) */
+.vinyl { animation-duration: 4s !important; animation-iteration-count: infinite !important; }
+.arm { transition-duration: .9s !important; }
+.prog { display: flex; align-items: center; gap: 10px; margin: 14px 0 0; }
+.prog input { flex: 1; min-width: 0; accent-color: var(--rose); }
+.prog span { min-width: 5.5em; text-align: right; font-size: .8rem; opacity: .75; }
+#pickBtn { margin-top: 12px; padding: 6px 14px; font-size: .85rem; }
+
+/* album cover on the record */
+.label.hasCover { width: 46%; padding: 0; }
+.label img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* volume */
+.vol { display: flex; align-items: center; gap: 10px; margin: 10px 0 0; }
+.vol input { flex: 1; min-width: 0; accent-color: var(--rose); }
+.vol .ghost { min-width: 46px; padding: 4px 10px; font-size: 1.1rem; }
+.vol span { min-width: 3em; text-align: right; font-size: .8rem; opacity: .75; }

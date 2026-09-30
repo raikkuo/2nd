@@ -1,0 +1,100 @@
+:root {
+  --night: #2b1436;
+  --night2: #43204f;
+  --rose: #ff5d8f;
+  --butter: #ffd166;
+  --mint: #7be0c3;
+  --sky: #6ec1ff;
+  --paper: #fff6e9;
+  --ink: #4a2440;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  font-family: "Fredoka", system-ui, sans-serif;
+  color: #fff;
+  background: radial-gradient(circle at 50% 20%, var(--night2), var(--night) 70%);
+  text-align: center;
+  overflow-x: hidden;
+}
+main { min-height: 100%; display: flex; flex-direction: column; align-items: center; padding: 28px 16px 40px; }
+h1 { font-family: "Caveat", cursive; font-size: clamp(2.4rem, 8vw, 3.6rem); margin: 0; color: var(--butter); font-weight: 700; }
+.sub { margin: 4px 0 22px; opacity: .8; }
+
+/* machine */
+.machine { width: 250px; cursor: pointer; outline-offset: 8px; -webkit-tap-highlight-color: transparent; }
+.machine:focus-visible { outline: 3px dashed var(--butter); border-radius: 30px; }
+.dome {
+  position: relative; height: 230px; border-radius: 125px 125px 14px 14px;
+  background: linear-gradient(135deg, rgba(255,255,255,.28), rgba(255,255,255,.06));
+  border: 4px solid rgba(255,255,255,.5); overflow: hidden;
+  box-shadow: inset 0 -20px 30px rgba(0,0,0,.25);
+}
+.dome::after { content: ""; position: absolute; left: 22px; top: 26px; width: 26px; height: 70px; border-radius: 20px; background: rgba(255,255,255,.35); transform: rotate(18deg); }
+.ball { position: absolute; width: 48px; height: 48px; border-radius: 50%; box-shadow: inset -6px -8px 0 rgba(0,0,0,.14); }
+.ball::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: linear-gradient(#fff 0 0) center/100% 3px no-repeat; opacity: .55; }
+.shake .dome { animation: shake .12s linear 8; }
+@keyframes shake { 0%,100% { transform: translateX(0) } 25% { transform: translateX(-4px) rotate(-1deg) } 75% { transform: translateX(4px) rotate(1deg) } }
+.shake .ball { animation: jiggle .25s ease-in-out 4; }
+@keyframes jiggle { 50% { transform: translateY(-12px) rotate(40deg) } }
+
+.base {
+  position: relative; height: 190px; border-radius: 16px 16px 30px 30px;
+  background: linear-gradient(var(--rose), #e23f76); box-shadow: 0 14px 0 #a72b56, 0 26px 40px rgba(0,0,0,.4);
+}
+.knob { position: absolute; left: 50%; top: 22px; width: 84px; height: 84px; margin-left: -42px; border-radius: 50%; background: var(--butter); box-shadow: inset -6px -8px 0 rgba(0,0,0,.15), 0 4px 0 #c99a2e; display: grid; place-items: center; }
+.knob b { width: 58px; height: 12px; border-radius: 8px; background: #b3801f; }
+.shake .knob { animation: turn .9s ease-in-out; }
+@keyframes turn { to { transform: rotate(360deg) } }
+.chute { position: absolute; left: 50%; bottom: 14px; width: 92px; height: 52px; margin-left: -46px; border-radius: 14px 14px 22px 22px; background: #5a1d3a; box-shadow: inset 0 6px 10px rgba(0,0,0,.6); overflow: hidden; }
+.drop { position: absolute; left: 22px; top: -50px; width: 48px; height: 48px; border-radius: 50%; animation: fall .7s .7s cubic-bezier(.5,0,1,.6) forwards; box-shadow: inset -6px -8px 0 rgba(0,0,0,.14); }
+@keyframes fall { to { top: 8px } }
+
+.hint { font-family: "Caveat", cursive; font-size: 1.7rem; margin: 40px 0 0; color: var(--mint); }
+.count { margin: 2px 0 14px; font-size: .9rem; opacity: .75; }
+.ghost, .btns button {
+  font: inherit; color: #fff; background: transparent; border: 2px solid rgba(255,255,255,.5);
+  border-radius: 999px; padding: 10px 20px; cursor: pointer;
+}
+.ghost:hover, .btns button:hover { background: rgba(255,255,255,.14); }
+button:focus-visible { outline: 3px solid var(--butter); outline-offset: 2px; }
+
+/* reveal */
+.overlay { position: fixed; inset: 0; background: rgba(20,6,28,.82); display: grid; place-items: center; padding: 16px; z-index: 5; }
+.overlay[hidden], .jar[hidden] { display: none; }
+.stage { position: relative; width: min(360px, 100%); min-height: 380px; display: grid; place-items: center; }
+.cap { position: absolute; top: 40px; width: 110px; height: 110px; animation: pop .5s cubic-bezier(.3,1.6,.6,1) both; }
+@keyframes pop { from { transform: scale(.2) translateY(160px) } }
+.cap i { position: absolute; left: 0; width: 110px; height: 55px; transition: transform .7s .35s ease-in, opacity .5s 1s; }
+.cap .top { top: 0; border-radius: 55px 55px 0 0; background: var(--c); }
+.cap .bot { bottom: 0; border-radius: 0 0 55px 55px; background: #fff; }
+.cap.open .top { transform: translate(-70px, -50px) rotate(-40deg); opacity: 0; }
+.cap.open .bot { transform: translate(70px, 50px) rotate(40deg); opacity: 0; }
+.note {
+  background: var(--paper); color: var(--ink); border-radius: 10px; padding: 30px 24px 22px; width: 100%;
+  box-shadow: 0 20px 50px rgba(0,0,0,.5); transform: scale(.4) rotate(-4deg); opacity: 0;
+}
+.note.show { animation: unfold .6s cubic-bezier(.3,1.4,.6,1) forwards; }
+@keyframes unfold { to { transform: scale(1) rotate(-1deg); opacity: 1 } }
+.note p { font-family: "Caveat", cursive; font-size: clamp(1.7rem, 6vw, 2.1rem); line-height: 1.15; margin: 0 0 14px; font-weight: 500; }
+.note small { display: block; color: var(--rose); font-weight: 600; margin-bottom: 18px; }
+.btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.note .btns button { color: var(--ink); border-color: var(--ink); }
+.note .btns button:hover { background: rgba(74,36,64,.1); }
+.note .btns button.kept { background: var(--rose); border-color: var(--rose); color: #fff; }
+
+/* jar */
+.jar { position: fixed; inset: 0; background: rgba(20,6,28,.85); display: grid; place-items: center; padding: 16px; z-index: 6; }
+.jarbox { background: var(--night2); border: 2px solid rgba(255,255,255,.25); border-radius: 20px; padding: 22px; width: min(420px, 100%); max-height: 80vh; display: flex; flex-direction: column; }
+.jarbox h2 { font-family: "Caveat", cursive; color: var(--butter); font-size: 2.2rem; margin: 0 0 8px; }
+.jarbox ul { list-style: none; padding: 0; margin: 0 0 16px; overflow-y: auto; text-align: left; }
+.jarbox li { background: var(--paper); color: var(--ink); font-family: "Caveat", cursive; font-size: 1.4rem; padding: 8px 14px; border-radius: 8px; margin-bottom: 8px; }
+.jarbox li.empty { background: none; color: #fff; opacity: .7; text-align: center; }
+
+.hearts { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 7; }
+.heart { position: absolute; bottom: -30px; animation: rise 3.5s ease-out forwards; }
+@keyframes rise { to { transform: translateY(-110vh) rotate(20deg); opacity: 0 } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
+}

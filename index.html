@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reasons I Love You</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="sections.css?v=2">
+</head>
+<body>
+  <nav class="nav">
+    <a href="#capsules">Capsules</a>
+    <a href="#gallery">Flowers</a>
+    <a href="#songs">Our songs</a>
+    <a href="#letter">Letter</a>
+  </nav>
+
+  <main id="capsules">
+    <h1 id="title"></h1>
+    <p class="sub" id="sub"></p>
+    <p class="together" id="together"></p>
+
+    <div class="machine" id="machine" role="button" tabindex="0" aria-label="Turn the knob to get a reason I love you">
+      <div class="dome" id="dome"></div>
+      <div class="base">
+        <span class="knob" id="knob"><b></b></span>
+        <div class="chute" id="chute"></div>
+      </div>
+    </div>
+
+    <p class="hint" id="hint">Tap the machine</p>
+    <p class="count" id="count"></p>
+    <button class="ghost" id="jarBtn">Open my jar</button>
+  </main>
+
+  <section class="sec" id="gallery">
+    <h2>For you</h2>
+    <p class="lead">A little bouquet, because you deserve flowers.</p>
+    <div class="bouquet" id="wall" aria-label="A bouquet of pink lilies and blossoms with petals falling"></div>
+  </section>
+
+  <section class="sec" id="songs">
+    <h2>Songs that are ours</h2>
+    <p class="lead">Press play and let the record spin.</p>
+    <div class="player">
+      <div class="deck" id="deck">
+        <div class="vinyl"><span class="label" id="vLabel"></span></div>
+        <div class="arm"></div>
+      </div>
+      <div class="info">
+        <h3 id="sTitle"></h3>
+        <p class="artist" id="sArtist"></p>
+        <p class="why" id="sWhy"></p>
+        <div class="ctrl">
+          <button class="ghost" id="prev" aria-label="Previous song">Prev</button>
+          <button class="ghost" id="play">Play</button>
+          <button class="ghost" id="next" aria-label="Next song">Next</button>
+        </div>
+        <div class="prog">
+          <input type="range" id="seek" min="0" max="100" value="0" step="0.1" aria-label="Song position">
+          <span id="time">0:00</span>
+        </div>
+        <div class="vol">
+          <button class="ghost" id="mute" aria-label="Mute or unmute"></button>
+          <input type="range" id="vol" min="0" max="100" value="80" aria-label="Volume">
+          <span id="volPct">80%</span>
+        </div>
+        <button class="ghost" id="pickBtn">+ Add an mp3 to try</button>
+        <input type="file" id="mp3pick" accept="audio/*,.mp3" hidden>
+        <p class="msg" id="sMsg"></p>
+      </div>
+    </div>
+    <ol class="tracks" id="tracks"></ol>
+    <audio id="audio" preload="none"></audio>
+  </section>
+
+  <section class="sec" id="letter">
+    <h2>A letter for you</h2>
+    <p class="lead">Written just for this monthsary.</p>
+    <button class="env" id="env" aria-label="Open the letter">
+      <span class="flap"></span><span class="seal">&#9829;</span>
+    </button>
+    <article class="letter" id="letterBox" hidden></article>
+  </section>
+
+  <footer class="foot" id="foot"></footer>
+
+  <div class="overlay" id="overlay" hidden>
+    <div class="stage">
+      <div class="cap" id="cap"><i class="top"></i><i class="bot"></i></div>
+      <div class="note" id="note">
+        <p id="reason"></p>
+        <small id="sig"></small>
+        <div class="btns">
+          <button id="keep">&#9825; Keep it</button>
+          <button id="again">Another one</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="jar" id="jar" hidden>
+    <div class="jarbox">
+      <h2>My jar</h2>
+      <ul id="jarList"></ul>
+      <button class="ghost" id="jarClose">Close</button>
+    </div>
+  </aside>
+
+  <div class="hearts" id="hearts" aria-hidden="true"></div>
+
+  <script src="reasons.js"></script>
+  <script src="content.js?v=2"></script>
+  <script src="script.js"></script>
+  <script src="sections.js?v=2"></script>
+</body>
+</html>
