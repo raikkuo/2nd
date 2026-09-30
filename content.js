@@ -44,6 +44,6 @@ const CONTENT = {
       "I love the way we can be silly together, talk about random things, annoy each other, laugh together, and just be ourselves.i hope we get to experience so much more together and make even more memories that we'll look back on someday.",
       "thank you for being my person, bab. i'm so happy that it's you. i love you so, so much. happy 2nd monthsary to us. "
     ],
-    sign: "with your,"
+    sign: "from your,"
   }
 };
