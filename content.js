@@ -32,7 +32,7 @@ const CONTENT = {
       why: "the ." },
     { title: "our song:p", artist:"Libu-Libong Buwan: Kyle Raphael", file: "Libu-Libong Buwan (Uuwian) - Kyle Raphael (Lyric Video).mp3", color: "#7be0c3", cover: "ab67616d0000b27371784b412d5d984fb1cfd880.jpg",
       why: "the song that will always remind me that it will always be you." },
-    { title: "song that i was relate the most.", artist: "Tsunami: NIKI", file: "NIKI - Tsunami (Official Lyric Video).mp3", color: "#ffd166", cover: "images (3).jpg",
+    { title: "song that i relate to the most.", artist: "Tsunami: NIKI", file: "NIKI - Tsunami (Official Lyric Video).mp3", color: "#ffd166", cover: "images (3).jpg",
       why: "i fell so deeply in love with you in such an unexpected time, like a tsunami that can't be stopped." }
   ],
 
