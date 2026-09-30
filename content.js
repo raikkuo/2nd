@@ -26,11 +26,11 @@ const CONTENT = {
   ],
 
   songs: [
-    { title: "your favourite song c:", artist: "Safe and Sound: Taylor Swift", file: "Safe & Sound (Taylor's Version).mp3", color: "#ff5d8f", cover: "images.jpg",
+    { title: "your favourite song c:", artist: "Safe and Sound: Taylor Swift", file: "Taylor Swift feat. The Civil Wars Safe & Sound (from The Hunger Games Soundtrack) (1).mp3", color: "#ff5d8f", cover: "images (5).jpg",
       why: "you really do know how to pick your favourites." },
     { title: "song that fits you", artist: "Just the way you are: Bruno Mars", file: "Bruno Mars - Just The Way You Are (Audio).mp3", color: "#6ec1ff", cover: "images (2).jpg",
-      why: "the ." },
-    { title: "our song:p", artist:"Libu-Libong Buwan: Kyle Raphael", file: "Libu-Libong Buwan (Uuwian) - Kyle Raphael (Lyric Video).mp3", color: "#7be0c3", cover: "ab67616d0000b27371784b412d5d984fb1cfd880.jpg",
+      why: "for you ." },
+    { title: "our song:p", artist:"Dumaloy: SUD", file: "SUD - Dumaloy (Official Audio).mp3", color: "#7be0c3", cover: "images (4).jpg",
       why: "the song that will always remind me that it will always be you." },
     { title: "song that i relate to the most before.", artist: "Tsunami: NIKI", file: "NIKI - Tsunami (Official Lyric Video).mp3", color: "#ffd166", cover: "images (3).jpg",
       why: "i fell so deeply in love with you in such an unexpected time, like a tsunami that can't be stopped." }
