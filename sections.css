@@ -98,3 +98,8 @@ main { min-height: calc(100vh - 52px); }
   .tracks { width: 100%; max-width: 340px; }
   .tracks button { text-align: center; }
   .bouquet { margin-left: auto; margin-right: auto; }
+}
+ 
+/* ---------- lock the page: vertical scroll only, no sideways drag ---------- */
+html, body { max-width: 100%; overflow-x: clip; overscroll-behavior-x: none; touch-action: pan-y pinch-zoom; }
+main, .sec, .foot { overflow-x: clip; }   /* bouquet glow, falling petals and the record arm can't widen the page */
