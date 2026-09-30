@@ -2,17 +2,17 @@ html { scroll-behavior: smooth; }
 body { height: auto; min-height: 100%; background-attachment: fixed; }
 main, .sec { scroll-margin-top: 52px; }
 main { min-height: calc(100vh - 52px); }
-
+ 
 .nav { position: sticky; top: 0; z-index: 4; display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; padding: 10px; background: rgba(43,20,54,.88); backdrop-filter: blur(8px); }
 .nav a { color: #fff; text-decoration: none; padding: 6px 14px; border-radius: 999px; }
 .nav a:hover, .nav a:focus-visible { background: rgba(255,255,255,.16); outline: none; }
-
+ 
 .together { margin: 0 0 22px; padding: 8px 18px; border-radius: 999px; background: rgba(255,255,255,.1); font-size: .95rem; }
-
+ 
 .sec { max-width: 900px; margin: 0 auto; padding: 70px 16px; }
 .sec h2 { font-family: "Caveat", cursive; font-size: clamp(2.2rem, 7vw, 3rem); color: var(--butter); margin: 0; }
 .lead { opacity: .8; margin: 4px 0 30px; }
-
+ 
 /* bouquet */
 #gallery h2 { color: #ffb3cf; }
 .bouquet { position: relative; width: min(440px, 100%); aspect-ratio: 440 / 520; margin: 10px auto 90px; }
@@ -24,13 +24,13 @@ main { min-height: calc(100vh - 52px); }
   animation: sway 5s ease-in-out var(--d) infinite alternate; }
 .flower svg { display: block; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 4px 6px rgba(0,0,0,.28)); }
 @keyframes sway { to { transform: translate(-50%, -50%) rotate(calc(var(--r) + 3deg)); } }
-
+ 
 /* falling petals (moved by sections.js) */
 .pt { position: absolute; left: 0; top: 0; z-index: 4; pointer-events: none; will-change: transform, opacity; }
 .pt i { display: block; width: 100%; height: 100%; border-radius: 85% 0 85% 0; background: linear-gradient(135deg, var(--c1), var(--c2));
   box-shadow: inset -2px -3px 5px rgba(255,255,255,.28), 0 2px 4px rgba(0,0,0,.18); }
 .pt.rest { will-change: auto; }
-
+ 
 /* vinyl */
 .player { display: flex; gap: 40px; align-items: center; justify-content: center; flex-wrap: wrap; }
 .deck { position: relative; width: min(280px, 78vw); aspect-ratio: 1; margin-right: 24px; }
@@ -54,7 +54,7 @@ main { min-height: calc(100vh - 52px); }
 .tracks { list-style: none; padding: 0; margin: 30px auto 0; max-width: 420px; text-align: left; }
 .tracks button { width: 100%; text-align: left; font: inherit; color: #fff; background: rgba(255,255,255,.07); border: 0; border-radius: 10px; padding: 10px 14px; margin-bottom: 6px; cursor: pointer; }
 .tracks button:hover, .tracks .on button { background: rgba(255,255,255,.18); }
-
+ 
 /* letter */
 .env { position: relative; display: block; width: min(300px, 80vw); height: 190px; margin: 0 auto; border: 0; border-radius: 8px; background: #f0cfb5; cursor: pointer; box-shadow: 0 16px 36px rgba(0,0,0,.45); transition: opacity .5s, transform .5s; }
 .env:focus-visible { outline: 3px dashed var(--butter); outline-offset: 6px; }
@@ -67,9 +67,9 @@ main { min-height: calc(100vh - 52px); }
 .letter.show { animation: unfold .7s cubic-bezier(.3,1.4,.6,1) forwards; }
 .letter p { margin: 0 0 14px; }
 .letter .sign { color: var(--rose); font-weight: 700; margin: 22px 0 0; }
-
+ 
 .foot { padding: 40px 16px 60px; font-family: "Caveat", cursive; font-size: 1.8rem; color: var(--butter); }
-
+ 
 /* keep the record spinning even when the device has reduced-motion on (style.css would freeze it) */
 .vinyl { animation-duration: 4s !important; animation-iteration-count: infinite !important; }
 .arm { transition-duration: .9s !important; }
@@ -77,13 +77,24 @@ main { min-height: calc(100vh - 52px); }
 .prog input { flex: 1; min-width: 0; accent-color: var(--rose); }
 .prog span { min-width: 5.5em; text-align: right; font-size: .8rem; opacity: .75; }
 #pickBtn { margin-top: 12px; padding: 6px 14px; font-size: .85rem; }
-
+ 
 /* album cover on the record */
 .label.hasCover { width: 46%; padding: 0; }
 .label img { display: block; width: 100%; height: 100%; object-fit: cover; }
-
+ 
 /* volume */
 .vol { display: flex; align-items: center; gap: 10px; margin: 10px 0 0; }
 .vol input { flex: 1; min-width: 0; accent-color: var(--rose); }
 .vol .ghost { min-width: 46px; padding: 4px 10px; font-size: 1.1rem; }
 .vol span { min-width: 3em; text-align: right; font-size: .8rem; opacity: .75; }
+ 
+/* ---------- phone: center everything ---------- */
+@media (max-width: 640px) {
+  .sec { padding: 56px 16px; }
+  .player { flex-direction: column; align-items: center; justify-content: center; gap: 28px; }
+  .deck { margin: 0 auto; }              /* the desktop margin-right pushed the record off-center */
+  .info { width: 100%; max-width: 340px; margin: 0 auto; text-align: center; }
+  .ctrl { justify-content: center; }
+  .tracks { width: 100%; max-width: 340px; }
+  .tracks button { text-align: center; }
+  .bouquet { margin-left: auto; margin-right: auto; }
