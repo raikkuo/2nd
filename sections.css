@@ -101,5 +101,9 @@ main { min-height: calc(100vh - 52px); }
 }
  
 /* ---------- lock the page: vertical scroll only, no sideways drag ---------- */
-html, body { max-width: 100%; overflow-x: clip; overscroll-behavior-x: none; touch-action: pan-y pinch-zoom; }
-main, .sec, .foot { overflow-x: clip; }   /* bouquet glow, falling petals and the record arm can't widen the page */
+/* Root cause: the pink glow behind the bouquet (.bouquet::before) stuck out ~60px past each screen edge on phones,
+   which made the whole page slide sideways. Keep it inside the bouquet's area and hard-clip every section. */
+.bouquet::before { left: -8%; right: -8%; }
+html { overflow-x: hidden; max-width: 100%; }
+body { overflow-x: visible; max-width: 100%; overscroll-behavior-x: none; touch-action: pan-y pinch-zoom; }
+main, .sec, .foot { overflow: hidden; }
